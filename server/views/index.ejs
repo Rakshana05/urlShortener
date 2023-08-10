@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+</head>
+<style>
+    body{
+        width: 70%;
+        box-sizing: border-box;
+        margin: auto;
+        margin-top: 100px;
+    }
+    .form{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 10px;
+    }
+    .form-input{
+        width: 90%;
+        margin-right: 5px;
+    }
+    .form-btn{
+        border: none;
+        color: white;
+        background: green;
+    }
+    table{
+        width: 100%;
+        /* border: 1px solid black; */
+    }
+    th{
+        padding: 8px;
+        height: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+    td {
+        padding: 4px;
+        border-bottom: 1px solid #ddd;
+    }
+    a{
+        text-decoration: none;
+    }
+   
+
+</style>
+<body>
+    <form class="form" action="/post" method="POST">
+        <input class="form-input" id='origUrl' type="text" name="origUrl" placeholder="original URL">
+        <button class="form-btn" id="submit" type="submit">Get shortened</button>
+    </form>
+    <table>
+        <thead>
+            <th>Original Urls</th>
+            <th>Shortened Urls</th>
+        </thead>
+        <tbody>
+       <% shortUrls.forEach((shortUrl)=> { %>
+        <tr>
+            <td><a href="<%= shortUrl.origUrl %>"><%= shortUrl.origUrl %> </a></td> 
+            <td><a href="<%= shortUrl.shortUrl %>"><%= shortUrl.shortUrl %></a></td>
+        </tr>
+        <% }) %>
+    </tbody>
+    </div>
+</body>
+</html>
